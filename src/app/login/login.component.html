@@ -1,0 +1,70 @@
+<!-- If you remove the bootstrap then you have yo uncomment below mentioned block -->
+
+<!-- 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+<section class="login-block">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8 banner-sec">
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
+              alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+              <div class="banner-text">
+                <!-- <h2>This is Heaven</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p> -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-4 login-sec" *ngIf="show">
+        <h2 class="text-center">Login Or Signup Now</h2>
+        <button mat-raised-button color="primary" class="my-class">
+          <mat-icon>facebook</mat-icon>
+          Facebook
+        </button>
+        <button mat-raised-button color="warn"  class="my-class">
+          <mat-icon>Google</mat-icon>
+          Google
+        </button>
+        <form [formGroup]="form" class="login-form" (ngSubmit)="PostData(form)">
+          <div class="form-group">
+            <label for="exampleInputEmail1" class="text-uppercase">Phone Number</label>
+
+            <input formControlName="phone_number" type="text" class="form-control" ng2TelInput />
+            <br>
+            <span *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">Phone Number is Required</span>
+          </div>
+          <div class="form-check">
+            <button type="submit" class="btn btn-login my-class" [disabled]="!form.valid">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4 login-sec" *ngIf="!show">
+        <form [formGroup]="pass" class="login-form my-float" (ngSubmit)="verifyOtp(pass)">
+          <label for="exampleInputEmail1" class="text-uppercase">Enter Opt Code</label>
+
+          <div class="form-group">
+            <input  formControlName="first" type="text" class="form-control col-sm-2 my-float"/>
+            <input  formControlName="second" type="text" class="form-control col-sm-2 my-float"/>
+            <input  formControlName="third" type="text" class="form-control col-sm-2 my-float"/>
+            <input  formControlName="fourth" type="text" class="form-control col-sm-2 my-float"/>
+            <br>
+            <span *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">Phone Number is Required</span>
+          </div>
+          <div class="form-check">
+            <button type="submit" class="btn btn-login my-class" [disabled]="!form.valid">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
